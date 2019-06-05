@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import Error from './Error'
+import shortid from 'shortid'
 
 const Form = (props) => {
+  const {setExpense} = props;
   const [budgetName, setBudgetName] = useState('');
-  const [budgetQuantity, setBudgetQuantity] = useState(0);
+  const [budgetQuantity, setBudgetQuantity] = useState('');
   const [error, setError] = useState(false);
 
   const addExpense = e => {
@@ -12,6 +14,15 @@ const Form = (props) => {
       setError(true);
       return;
     }
+    const expense = {
+      budgetName,
+      budgetQuantity,
+      id: shortid.generate()
+    }
+    setExpense(expense);
+    setError(false);
+    setBudgetName('');
+    setBudgetQuantity('');
 
   }
 
@@ -28,6 +39,7 @@ const Form = (props) => {
           className="u-full-width"
           placeholder="e.g Transport"
           onChange={e => {setBudgetName(e.target.value)}}
+          value={budgetName}
         />
         <label>Budget Quantity</label>
         <input
@@ -35,6 +47,7 @@ const Form = (props) => {
           className="u-full-width"
           placeholder="e.g 3000"
           onChange={e => {setBudgetQuantity(parseInt(e.target.value, 10))}}
+          value={budgetQuantity}
         />
         <input type="submit" className="button-primary u-full-width" value="Add Budget"/>
       </div>
