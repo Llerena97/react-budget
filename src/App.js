@@ -10,10 +10,15 @@ function App() {
   const [expense, setExpense] = useState({});
   const [expenses, setExpenses] = useState([]);
 
+  const [createExpense, setCreateExpense] = useState(false);
+
   useEffect(() => {
-    const ExpensesList = [...expenses, expense];
-    setExpenses(ExpensesList);
-  }, []);
+    if (createExpense) {
+      const ExpensesList = [...expenses, expense];
+      setExpenses(ExpensesList);
+      setCreateExpense(false);
+    }
+  }, [createExpense]);
 
 
   return (
@@ -32,6 +37,7 @@ function App() {
                 <div className="one-half column">
                   <Form
                       setExpense={setExpense}
+                      setCreateExpense={setCreateExpense}
                     />
                 </div>
                 <div className="one-half column">

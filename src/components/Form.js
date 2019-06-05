@@ -3,7 +3,7 @@ import Error from './Error'
 import shortid from 'shortid'
 
 const Form = (props) => {
-  const {setExpense} = props;
+  const {setExpense, setCreateExpense} = props;
   const [budgetName, setBudgetName] = useState('');
   const [budgetQuantity, setBudgetQuantity] = useState('');
   const [error, setError] = useState(false);
@@ -20,6 +20,7 @@ const Form = (props) => {
       id: shortid.generate()
     }
     setExpense(expense);
+    setCreateExpense(true);
     setError(false);
     setBudgetName('');
     setBudgetQuantity('');
