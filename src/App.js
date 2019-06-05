@@ -18,9 +18,11 @@ function App() {
     if (createExpense) {
       const ExpensesList = [...expenses, expense];
       setExpenses(ExpensesList);
+      const budgetRemaining = remaining - expense.budgetQuantity;
+      setRemaining(budgetRemaining);
       setCreateExpense(false);
     }
-  }, [createExpense]);
+  }, [createExpense, expense, expenses, remaining]);
 
 
   return (
