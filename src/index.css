@@ -27,7 +27,7 @@ header {
 .budget p span {
   font-weight: normal;
 }
-#expenditures {
+#expenses {
   margin-bottom: 30px;
 }
 h1 {
@@ -85,25 +85,25 @@ h4 {
   background-color: #fff3cd;
   border-color: #ffeeba;
 }
-.executed-expenditures  {
+.executed-expenses  {
   margin-bottom: 2rem;
 }
-.executed-expenditures li{
+.executed-expenses li{
   list-style: none;
   margin-bottom: 0rem;
   border-bottom: 1px solid #e1e1e1;
   padding: 1rem 0;
 }
-.executed-expenditures li:last-of-type {
+.executed-expenses li:last-of-type {
   margin-bottom: 0!important;
 }
-.executed-expenditures li p {
+.executed-expenses li p {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin:0;
 }
-.executed-expenditures li p .expenditure {
+.executed-expenses li p .expense {
   background-color: #004085;
   padding: 1rem;
   color:white;

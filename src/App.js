@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Question from './components/Question';
 import Form from './components/Form';
+import List from './components/List';
 
 function App() {
   const [budget, setBudget] = useState(0);
@@ -8,6 +9,11 @@ function App() {
 
   const [expense, setExpense] = useState({});
   const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    const ExpensesList = [...expenses, expense];
+    setExpenses(ExpensesList);
+  }, []);
 
 
   return (
@@ -29,6 +35,9 @@ function App() {
                     />
                 </div>
                 <div className="one-half column">
+                  <List
+                      expenses={expenses}
+                    />
                 </div>
               </div>
             )
