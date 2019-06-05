@@ -15,6 +15,7 @@ const Question = () => {
   return (
     <Fragment>
       <h2>Type your budget</h2>
+      {error ? <p className="alert alert-danger error">Wrong Budget!</p> : null}
       <form
         onSubmit={addBudget}
       >
